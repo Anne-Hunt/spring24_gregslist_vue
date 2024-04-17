@@ -5,7 +5,7 @@
 
 <template>
     <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#jobOffCanvas" aria-controls="jobOffCanvas">
-  Button with data-bs-target
+Post a Job
 </button>
 
 <div class="offcanvas offcanvas-start show" tabindex="-1" id="jobOffCanvas" aria-labelledby="jobOffCanvasLabel">

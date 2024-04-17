@@ -27,13 +27,14 @@ async function trashHouse(houseId){
 
 
 <template>
-<div class="card bg-light shadow rounded col-md-4">
+<div class="card bg-light shadow rounded col-md-4 mb-2">
     <img :src="house.imgUrl" :alt="house.id" class="card-img-top">
-    <h2 class="fs-5 card-title">{{ house.year }} | {{ house.bedrooms }} beds | {{ house.bathrooms }} baths | {{ house.levels }} levels</h2>
-    <div class="card-body">{{ house.description }}</div>
-    <h3>{{ house.price }}</h3>
-    <p>{{ house.creator }}</p>
+    <h2 class="fs-5 card-title p-2">{{ house.year }} | {{ house.bedrooms }} beds | {{ house.bathrooms }} baths | {{ house.levels }} levels</h2>
+    <div class="card-body p-3">{{ house.description }}
+    <h3>${{ house.price }}</h3>
+    <p>{{ house.creator.name }}</p>
     <button v-if="house.creatorId == account?.id" @click="trashHouse(house.id)" class="btn btn-danger text-light p-0" title="delete house listing"><i class="mdi mdi-dumpster"></i></button>
+</div>
 </div>
 </template>
 

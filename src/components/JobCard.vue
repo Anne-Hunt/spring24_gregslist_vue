@@ -27,14 +27,17 @@ async function trashJob(jobId){
 
 
 <template>
-<div class="bg-light rounded shadow d-flex">
-    <h2>{{ job.jobTitle }}</h2>
-    <p>{{ job.company }}</p> | {{ job.creator }} | Posted {{ job.createdAt.toLocaleDateString() }}
-    <div class="row">
-        <p>{{ job.description }}</p>
-        <span>{{ job.hours }} | {{ job.rate }}</span>
+<div class="bg-light rounded shadow p-3 mb-2">
+    <div>
+
+        <h2>{{ job.jobTitle }}</h2>
+        <p class="mb-2">{{ job.company }}</p> | {{ job.creator.name }} | Posted {{ job.createdAt.toLocaleDateString() }}
+        <div class="row">
+            <p>{{ job.description }}</p>
+            <span>{{ job.hours }} hours | ${{ job.rate }}</span>
+        </div>
+        <button v-if="job.creatorId == account?.id" @click="trashJob(job.id)" class="btn btn-danger text-light" title="remove the post"><i class="mdi mdi-trash"></i></button>
     </div>
-    <button v-if="job.creatorId == account?.id" @click="trashJob(job.id)" class="btn btn-danger text-light" title="remove the post"><i class="mdi mdi-dumpster"></i></button>
 </div>
 </template>
 
