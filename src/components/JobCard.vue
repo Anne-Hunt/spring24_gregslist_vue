@@ -28,7 +28,7 @@ async function trashJob(jobId){
 
 <template>
 <div class="bg-light rounded shadow d-flex">
-    <h2>{{ job.title }}</h2>
+    <h2>{{ job.jobTitle }}</h2>
     <p>{{ job.company }}</p> | {{ job.creator }} | Posted {{ job.createdAt.toLocaleDateString() }}
     <div class="row">
         <p>{{ job.description }}</p>
