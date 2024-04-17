@@ -41,7 +41,7 @@ async function createHouse(){
 <!-- <button class="btn btn-primary" type="button" data-bs-toggle="houseOffCanvas" data-bs-target="#houseOffCanvas" aria-controls="houseOffCanvas">
 Sell A House</button> -->
 
-<div class="offcanvas offcanvas-start show" tabindex="-1" id="houseOffCanvas" aria-labelledby="houseOffCanvasLabel">
+<div class="offcanvas offcanvas" tabindex="-1" id="houseOffCanvas" aria-labelledby="houseOffCanvasLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="houseOffCanvasLabel">Post a House For Sale</h5>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>

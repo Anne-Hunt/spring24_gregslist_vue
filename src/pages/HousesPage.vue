@@ -28,7 +28,7 @@ onMounted(()=> {
     <section class="row">
       <div class="col-12 d-flex px-2">
         <h1 class="px-2">Housing</h1>
-        <button v-if="account" class="btn btn-outline-primary p-0" title="Add a house posting" data-bs-toggle="houseOffCanvas" data-bs-target="#houseOffCanvas" aria-controls="houseOffCanvas"><i class="mdi mdi-plus-circle fs-1"></i></button>
+        <button v-if="account" class="btn btn-outline-primary p-0" title="Add a house posting" data-bs-toggle="offcanvas" data-bs-target="#houseOffCanvas" aria-controls="houseOffCanvas"><i class="mdi mdi-plus-circle fs-1"></i></button>
       </div>
     </section>
     <section class="row">
