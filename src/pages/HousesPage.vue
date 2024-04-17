@@ -3,6 +3,7 @@ import { computed, onMounted } from 'vue';
 import { housesService } from '../services/HousesService.js';
 import Pop from '../utils/Pop.js';
 import { AppState } from '../AppState.js';
+import HouseCard from '../components/HouseCard.vue'
 
 const houses = computed(()=> AppState.houses)
 const account = computed(()=> AppState.account)

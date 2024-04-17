@@ -1,5 +1,5 @@
 <script setup>
-// import { Offcanvas } from 'bootstrap';
+import { Offcanvas } from 'bootstrap';
 import { housesService } from '../services/HousesService.js';
 import Pop from '../utils/Pop.js';
 import { ref } from 'vue';
@@ -19,12 +19,21 @@ async function createHouse(){
     try {
         logger.log('creating house', houseData)
         await housesService.createHouse(houseData.value)
+       houseData.value = {
+       bedrooms: '',
+       bathrooms: '',
+       levels: '',
+       year: '',
+       imgUrl: '',
+       price: '',
+       description: ''
+       }
+        Offcanvas.getOrCreateInstance('#houseOffCanvas').hide()
     } catch (error) {
         Pop.toast('cannot make that house right now', 'error')
     }
 }
 
-Offcanvas.getOrCreateInstance('#houseOffCanvas').hide()
 </script>
 
 

@@ -1,5 +1,5 @@
 <script setup>
-// import { Offcanvas } from 'bootstrap';
+import { Offcanvas } from 'bootstrap';
 import Pop from '../utils/Pop.js';
 import { jobsService } from '../services/JobsService.js';
 import { logger } from '../utils/Logger.js';
@@ -17,12 +17,18 @@ async function createJob(){
     try {
         logger.log('creating a job', jobData)
         await jobsService.createJob(jobData.value)
+        jobData.value = {
+       jobTitle: '',
+       description: '',
+       hours: '',
+       rate: '',
+       company: ''}
+        Offcanvas.getOrCreateInstance('#jobOffCanvas').hide()
     } catch (error) {
         Pop.toast('Could not post job', 'error')
     }
 }
 
-Offcanvas.getOrCreateInstance('#jobOffCanvas').hide()
 </script>
 
 
