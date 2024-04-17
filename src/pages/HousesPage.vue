@@ -25,7 +25,7 @@ onMounted(()=> {
 <template>
   <div class="container">
     <section class="row">
-      <div class="col-12">
+      <div class="col-12 d-flex px-2">
         <h1 class="px-2">Housing</h1>
         <button class="btn btn-outline-primary p-0" title="Add a house posting"><i class="mdi mdi-plus-circle fs-1"></i></button>
       </div>
