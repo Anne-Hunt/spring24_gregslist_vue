@@ -5,6 +5,12 @@ import { api } from "./AxiosService.js"
 
 
 class JobsService {
+    async createJob(jobData) {
+        const response = await api.post('api/jobs', jobData)
+        logger.log('creating job, you job creator', response.data)
+        const jobby = new Job(response.data)
+        AppState.jobs.push(jobby)
+    }
 
     async getJobs() {
         const response = await api.get('api/jobs')

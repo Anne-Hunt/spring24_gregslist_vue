@@ -1,11 +1,36 @@
 <script setup>
+// import { Offcanvas } from 'bootstrap';
+import { housesService } from '../services/HousesService.js';
+import Pop from '../utils/Pop.js';
+import { ref } from 'vue';
+import { logger } from '../utils/Logger.js';
 
+const houseData = ref({
+    bedrooms: '',
+    bathrooms: '',
+    levels: '',
+    year: '',
+    imgUrl: '',
+    price: '',
+    description: ''
+})
+
+async function createHouse(){
+    try {
+        logger.log('creating house', houseData)
+        await housesService.createHouse(houseData.value)
+    } catch (error) {
+        Pop.toast('cannot make that house right now', 'error')
+    }
+}
+
+Offcanvas.getOrCreateInstance('#houseOffCanvas').hide()
 </script>
 
 
 <template>
-<button class="btn btn-primary" type="button" data-bs-toggle="houseOffCanvas" data-bs-target="#houseOffCanvas" aria-controls="houseOffCanvas">
-Sell A House</button>
+<!-- <button class="btn btn-primary" type="button" data-bs-toggle="houseOffCanvas" data-bs-target="#houseOffCanvas" aria-controls="houseOffCanvas">
+Sell A House</button> -->
 
 <div class="offcanvas offcanvas-start show" tabindex="-1" id="houseOffCanvas" aria-labelledby="houseOffCanvasLabel">
   <div class="offcanvas-header">
@@ -13,7 +38,7 @@ Sell A House</button>
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <form>
+    <form @submit.prevent="createHouse()">
             <label class="form-label" for="house-bedrooms">Bedroom Qty</label>
             <input type="text" name="bedrooms" id="house-bedrooms" class="form-control">
 

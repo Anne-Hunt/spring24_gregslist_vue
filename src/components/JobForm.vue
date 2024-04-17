@@ -1,12 +1,35 @@
 <script setup>
+// import { Offcanvas } from 'bootstrap';
+import Pop from '../utils/Pop.js';
+import { jobsService } from '../services/JobsService.js';
+import { logger } from '../utils/Logger.js';
+import { ref } from 'vue';
 
+const jobData = ref({
+    jobTitle: '',
+    description: '',
+    hours: '',
+    rate: '',
+    company: ''
+})
+
+async function createJob(){
+    try {
+        logger.log('creating a job', jobData)
+        await jobsService.createJob(jobData.value)
+    } catch (error) {
+        Pop.toast('Could not post job', 'error')
+    }
+}
+
+Offcanvas.getOrCreateInstance('#jobOffCanvas').hide()
 </script>
 
 
 <template>
-    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#jobOffCanvas" aria-controls="jobOffCanvas">
+    <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#jobOffCanvas" aria-controls="jobOffCanvas">
 Post a Job
-</button>
+</button> -->
 
 <div class="offcanvas offcanvas-start show" tabindex="-1" id="jobOffCanvas" aria-labelledby="jobOffCanvasLabel">
   <div class="offcanvas-header">
@@ -14,7 +37,7 @@ Post a Job
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <form>
+    <form @submit.prevent="createJob()">
         <label class="form-label" for="job-title">Job Title</label>
         <input type="text" name="jobTitle" id="job-title" class="form-control">
 

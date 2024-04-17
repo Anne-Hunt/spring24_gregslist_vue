@@ -6,6 +6,7 @@ import Pop from '../utils/Pop.js';
 import { computed, onMounted } from 'vue';
 
 
+
 const jobs = computed(()=> AppState.jobs)
 const account = computed(()=> AppState.account)
 
@@ -38,6 +39,7 @@ async function getJobs(){
 
     </section>
 </div>
+<JobForm/>
 </template>
 
 

@@ -12,6 +12,13 @@ class HousesService {
         AppState.houses = response.data.map(house => new House(house))
     }
 
+    async createHouse(houseData) {
+        const response = await api.post('api/houses', houseData)
+        logger.log('house built', response.data)
+        const housing = new House(response.data)
+        AppState.houses.push(housing)
+    }
+
     async trashHouse(houseId) {
         const response = await api.delete(`api/houses/${houseId}`)
         logger.log('trashed that house, man', response.data)

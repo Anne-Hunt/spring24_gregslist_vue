@@ -37,6 +37,7 @@ onMounted(()=> {
       </div>
     </section>
   </div>
+  <HouseForm/>
 </template>
 
 
