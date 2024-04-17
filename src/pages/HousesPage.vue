@@ -23,8 +23,21 @@ onMounted(()=> {
 
 
 <template>
-  <h1>Houses Page!</h1>
-  {{ houses }}
+  <div class="container">
+    <section class="row">
+      <div class="col-12">
+        <h1 class="px-2">Housing</h1>
+        <button class="btn btn-outline-primary p-0" title="Add a house posting"><i class="mdi mdi-plus-circle fs-1"></i></button>
+      </div>
+    </section>
+    <section class="row">
+      <div class="col-12">
+        <h1>Houses Page!</h1>
+        {{ houses }}
+
+      </div>
+    </section>
+  </div>
 </template>
 
 

@@ -15,11 +15,11 @@ async function getJobs(){
     catch (error){
       Pop.toast('Whooops! Cannot find those darn jobs, find bootstraps will ya?', 'error');
     }
+}
 
     onMounted(()=> {
         getJobs()
     })
-}
 </script>
 
 <template>

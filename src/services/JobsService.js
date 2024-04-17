@@ -9,7 +9,7 @@ class JobsService {
     async getJobs() {
         const response = await api.get('api/jobs')
         logger.log('jobs sent', response.data)
-        AppState.jobs = response.data.map(item => new Job(item))
+        AppState.jobs = response.data.map(job => new Job(job))
     }
 }
 
